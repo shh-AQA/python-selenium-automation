@@ -20,7 +20,7 @@ driver.get('https://www.amazon.com/')
 driver.find_element(By.CSS_SELECTOR, '#twotabsearchtextbox')
 
 ## 'Search Amazon input field' and connect using CSS by tag and ID'
-# to be implicit, can include tag as well (input in this case)
+# to be implicit, can include html tag as well (input in this case)
 driver.find_element(By.CSS_SELECTOR, 'input#twotabsearchtextbox')
 
 ## 'Search Amazon input field' and connect using CSS by class'
@@ -57,4 +57,4 @@ driver.find_element(By.CSS_SELECTOR, "[class*='styles_ndsBaseButton'][class*=''s
 driver.find_element(By.CSS_SELECTOR, "button[class*='styles_ndsBaseButton'][class*=''styles_ndsButtonPrimary]")
 
  ## NOTES:
- # CSS_Selectors cannot connect t0 text.  In that case, use XPATH
+ # CSS_Selectors cannot connect to text.  In that case, use XPATH
