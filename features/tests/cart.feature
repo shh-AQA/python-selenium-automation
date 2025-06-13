@@ -7,3 +7,10 @@ Feature: Test scenarios for Target shopping cart
     Then Verify message Your cart is empty is displayed
 
 
+Scenario: A product is added to cart
+  Given Open target main page
+  When Input chocolate into search field
+  And Click on search icon
+  And Click on Add to Cart
+  And Click on Add to Cart in side navigation
+  Then Verify product is added to shopping cart
