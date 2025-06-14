@@ -5,10 +5,10 @@ Feature: Test case for Target Help UI
     Given Open Target Help page
     Then Verify <UI element>
     Examples:
-    |UI element                             |
-    |Target Help header                     |
-    |search help input field                |
-    |search button                          |
-    |What would you like to do section      |
-    |contact us and product recalls section |
-    |Browse all help pages text             |
+    |UI element                               |
+    |Target Help header                       |
+    |search help input field                  |
+    |search button                            |
+    |What would you like to do section        |
+    |contact us and product recalls section   |
+    |Browse all help pages text is displayed  |
