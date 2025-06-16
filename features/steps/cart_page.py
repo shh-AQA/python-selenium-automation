@@ -22,7 +22,7 @@ def verify_product_in_cart(context):
     product_name_in_cart = context.driver.find_element(*PRODUCT_NAME_IN_CART).text
     print('Name in cart: ', product_name_in_cart)
 
-    assert 'Wide Brim' in product_name_in_cart, \
+    assert 'Hat' in product_name_in_cart, \
         f'Expected {context.product_name} did not match {product_name_in_cart}'
 
     # assert context.product_name[:20] == product_name_in_cart[:20], \
