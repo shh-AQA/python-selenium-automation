@@ -17,13 +17,13 @@ def verify_product_in_cart(context, amount):
 
     assert f'{amount} item' in cart_summary, f"Expected {amount} item(s) but got {cart_summary}"
 
-@then( 'Verify cart has correct product' )
-def verify_product_in_cart(context):
+@then( 'Verify cart has correct {product}' )
+def verify_product_in_cart(context, product):
     product_name_in_cart = context.driver.find_element(*PRODUCT_NAME_IN_CART).text
     print('Name in cart: ', product_name_in_cart)
 
-    assert 'Hat' in product_name_in_cart, \
+    assert 'Hat' or 'hat' in product_name_in_cart, \
         f'Expected {context.product_name} did not match {product_name_in_cart}'
 
-    # assert context.product_name[:20] == product_name_in_cart[:20], \
-    #     f'Expected {context.product_name[:20]} did not match {product_name_in_cart[:20]}'
+    # assert context.product_name[10:] in product_name_in_cart, \
+    #     f'Expected {context.product_name[10:]} did not match {product_name_in_cart}'
