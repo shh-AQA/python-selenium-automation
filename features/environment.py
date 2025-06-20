@@ -1,7 +1,10 @@
+from behave.api.async_step import AsyncContext
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
+
+from application.app import Application
 
 
 def browser_init(context):
@@ -12,6 +15,7 @@ def browser_init(context):
     service = Service(driver_path)
     context.driver = webdriver.Chrome(service=service)
     context.driver.wait = WebDriverWait(context.driver, 10)
+    context.app = Application(context.driver)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)

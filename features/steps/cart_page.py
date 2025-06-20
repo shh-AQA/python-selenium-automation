@@ -6,6 +6,7 @@ from features.steps.header import cart_icon
 
 CART_SUMMARY = (By.XPATH, "//div[./span[contains(text(), 'subtotal')]]")
 PRODUCT_NAME_IN_CART = (By.CSS_SELECTOR, "[data-test='cartItem-title']")
+CART_EMPTY_MSG = (By.CSS_SELECTOR, "[data-test='boxEmptyMsg']")
 
 @when( 'Open cart url' )
 def open_target(context):
@@ -16,6 +17,14 @@ def verify_product_in_cart(context, amount):
     cart_summary = context.driver.find_element(*CART_SUMMARY).text
 
     assert f'{amount} item' in cart_summary, f"Expected {amount} item(s) but got {cart_summary}"
+
+@then( 'Verify message Your cart is empty is displayed' )
+def verify_message(context):
+    # expected_text = 'Your cart is empty'
+    # actual_text = context.driver.find_element(*CART_EMPTY_MSG).text
+    # assert expected_text in actual_text, \
+    #     f"Error. Expected Text: {expected_text} not in Actual Text: {actual_text}"
+    context.app.cart_page.verify_empty_cart_message()
 
 @then( 'Verify cart has correct {product}' )
 def verify_product_in_cart(context, product):
