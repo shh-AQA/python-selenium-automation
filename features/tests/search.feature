@@ -1,10 +1,15 @@
 # Created by szhuss at 6/19/25
 Feature: Test cases for search field
 
-  Scenario: Verify user can search from a product
+  Scenario: Verify user can search for shoes
     Given Open target main page
     When  Input shoes into search field
     Then Verify search worked for shoes
+
+  Scenario: Verify user can search for mug
+    Given Open target main page
+    When  Input mug into search field
+    Then Verify search worked for mug
 
   Scenario: Verify user can see product names and images
     Given Open target main page

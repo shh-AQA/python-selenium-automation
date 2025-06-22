@@ -5,16 +5,17 @@ Feature: Test scenarios for Target shopping cart
     Given Open target main page
     When User clicks on shopping cart icon
     Then Verify message Your cart is empty is displayed
+    Then Verify Cart Page opened
   
   
   Scenario: Verify correct item and item count has been added to cart
     Given Open target main page
-    When Input hat into search field
+    When Input mug into search field
     And Click on search icon
     And Click on product image
-    And Store product name
-    And Click on Add to Cart
-    And Click on 'View Cart & checkout' button in side navigation
+    And Store product name from product details page
+    And Click on Add to Cart on product details page
+    And User clicks on shopping cart icon in cart overlay
     Then Verify cart has 1 item(s)
-    And Verify cart has correct product
+    Then Verify cart has correct product
 

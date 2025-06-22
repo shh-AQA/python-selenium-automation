@@ -7,3 +7,4 @@ def open_target(context):
     # context.driver.get('https://www.target.com/')
     context.app.main_page.open_main_page()
 
+
