@@ -38,6 +38,24 @@ class Page:
             message='Expected {partial_url} not in URL.'
         )
 
+    def get_current_window_id(self):
+        window = self.driver.current_window_handle
+        print(f"Original window id: {window}")
+        return window
+
+    def switch_to_new_window(self):
+        self.wait.until(EC.new_window_is_opened)
+        all_windows = self.driver.window_handles
+        print(f'Switching to a new window: {all_windows[1]}')
+        self.driver.switch_to.window(all_windows[1])
+
+    def close_window(self):
+        self.driver.close()
+
+    def switch_to_window_by_id(self, window_id):
+        print(f'Switching to window: {window_id}')
+        self.driver.switch_to.window(window_id)
+
     def verify_text(self, expected_text, *locator):
         actual_text = self.driver.find_element(*locator).text
         assert actual_text == expected_text, \
