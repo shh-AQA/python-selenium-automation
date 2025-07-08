@@ -13,6 +13,22 @@ BROWSE_ALL_HELP_TEXT = (By.XPATH, "//h2[text()='Browse all Help pages']")
 def open_target(context):
     context.driver.get('https://help.target.com/help')
 
+@given('Open Help Page for returns')
+def open_returns_and_exchanges_page(context):
+    context.app.help_page.open_returns_exchanges_page()
+
+@when('Select help topic {value}')
+def select_promotions_dd(context, value):
+    context.app.help_page.select_promotions_dd(value)
+
+@then('Verify help returns page opened')
+def verify_help_page(context):
+    context.app.help_page.verify_returns_exchanges_page()
+
+@then('Verify help current promotions page opened')
+def verify_help_current_promotions_page(context):
+    context.app.help_page.verify_help_current_promotions_page()
+
 @then( 'Verify Target Help header' )
 def verify_help_header(context):
     context.driver.find_element(*HELP_HEADER)

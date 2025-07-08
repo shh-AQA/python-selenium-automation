@@ -22,15 +22,19 @@ def search_results_product_name(context):
     # print(f"Product Name: {context.product_name}")
 
 
-@when( 'Click on product image' )
+@when('Click on product image')
 def click_product_image(context):
     # context.driver.wait.until(EC.visibility_of_element_located(PRODUCT_IMG)).click()
     # context.driver.find_element(*PRODUCT_IMG).click()
     # sleep(2)
     context.app.search_results_page.click_on_product_img()
 
+@when("Hover over 'add to favorites' icon")
+def hover_favorites_icon(context):
+    context.app.search_results_page.hover_favorites_icon()
 
-@then( 'Verify search worked for {product}' )
+
+@then('Verify search worked for {product}')
 def verify_search_results(context, product):
     context.app.search_results_page.verify_search_results(product)
     # expected_text = 'shoes'
@@ -38,7 +42,7 @@ def verify_search_results(context, product):
     # assert expected_text in actual_text, f"Error. Expected Text: {expected_text} not in Actual Text: {actual_text}"
 
 
-@then( 'Verify every product has a name and image' )
+@then('Verify every product has a name and image')
 def verify_every_product_name_img(context):
     products = context.driver.find_elements(*PRODUCT_CARD)[:4]
     print(f"Found {len(products)} products")
@@ -49,5 +53,9 @@ def verify_every_product_name_img(context):
         print(title)
         img = product.find_element(*PRODUCT_IMG)
         assert img, 'No image displayed'
+
+@then('Verify tooltip is displayed')
+def verify_tooltip_is_displayed(context):
+    context.app.search_results_page.verify_tooltip_is_displayed()
 
 

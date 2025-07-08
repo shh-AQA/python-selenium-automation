@@ -2,6 +2,7 @@ from pages.base_page import Page
 from pages.cart_overlay import CartOverlay
 from pages.cart_page import CartPage
 from pages.header import Header
+from pages.help_page import HelpPage
 from pages.login_overlay import LoginModal
 from pages.main_page import MainPage
 from pages.privacy_policy_page import PrivacyPolicyPage
@@ -19,6 +20,7 @@ class Application:
         self.cart_page = CartPage(driver)
         self.cart_overlay = CartOverlay(driver)
         self.header = Header(driver)
+        self.help_page = HelpPage(driver)
         self.main_page = MainPage(driver)
         self.login_modal = LoginModal(driver)
         self.privacy_policy_page = PrivacyPolicyPage(driver)

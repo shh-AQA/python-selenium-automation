@@ -16,3 +16,10 @@ Feature: Test cases for search field
     When  Input airpods into search field
     And Click on search icon
     Then Verify every product has a name and image
+
+  Scenario: Tooltip displayed when user hovers over 'add to favorites' icon
+    Given Open target main page
+    When Input tea into search field
+    And Click on search icon
+    And Hover over 'add to favorites' icon
+    Then Verify tooltip is displayed
